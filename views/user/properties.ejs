@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>Properties - Houses</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Bluesky template project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+	<link rel="stylesheet" type="text/css" href="styles/properties.css">
+	<link rel="stylesheet" type="text/css" href="styles/properties_responsive.css">
+
+	<style>
+	  .filterDiv {
+		display: none; /* Hidden by default */
+	  }
+	  
+	  /* The "show" class is added to the filtered elements */
+	  .show {
+		display: block;
+	  }
+	  
+	  /* Style the buttons */
+	  .btn {
+		border: none;
+		outline: none;
+		padding: 12px 16px;
+		background-color: #f1f1f1;
+		cursor: pointer;
+	  }
+	  
+	  /* Add a light grey background on mouse-over */
+	  .btn:hover {
+		background-color: #ddd;
+	  }
+	  
+	  /* Add a dark background to the active button */
+	  .btn.active {
+		background-color: #666;
+		color: white;
+	  }
+		  </style>
+
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+	
+	<header class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="header_content d-flex flex-row align-items-center justify-content-start">
+						<div class="logo">
+							<a href="#"><img src="images/logo.png" alt=""></a>
+						</div>
+						<nav class="main_nav">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="properties">Properties</a></li>
+								<li><a href="about">About us</a></li>
+								<li><a href="contact">Contact</a></li>
+							</ul>
+						</nav>
+						<div class="phone_num ml-auto">
+							<div class="phone_num_inner">
+								<img src="images/phone.png" alt=""><span>+254 700 000 000</span>
+							</div>
+						</div>
+						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Menu -->
+
+	<div class="menu trans_500">
+		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+			<div class="menu_close_container"><div class="menu_close"></div></div>
+			<div class="logo menu_logo">
+				<a href="#">
+					<div class="logo_container d-flex flex-row align-items-start justify-content-start">
+						<div class="logo_image"><div><img src="images/logo.png" alt=""></div></div>
+					</div>
+				</a>
+			</div>
+			<ul>
+				<li class="menu_item"><a href="/">Home</a></li>
+				<li class="menu_item"><a href="properties">About us</a></li>
+				<li class="menu_item"><a href="about">About us</a></li>
+				<li class="menu_item"><a href="contact">Contact</a></li>
+			</ul>
+		</div>
+		<div class="menu_phone"><span>call us: </span>+254 700 000 000</div>
+	</div>
+	
+	<!-- Home -->
+
+	<div class="home">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/properties.jpg" data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content d-flex flex-row align-items-end justify-content-start">
+							<div class="home_title">Property Results</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Properties -->
+
+	<div class="properties">
+		<div class="container">
+	<!-- Control buttons -->
+		<div>
+			<button class="btn" onclick="filterSelection('all')"> All</button>
+			<button class="btn" onclick="filterSelection('house')"> Houses</button>
+			<button class="btn" onclick="filterSelection('land')"> Lands</button>
+			<button class="btn" onclick="filterSelection('motor')"> Motors</button>
+		</div>
+
+			<div class="row properties_row">
+
+				<!-- Property -->
+				<% allItems.forEach(function(item) { %>
+				<% if (item.category == 'house') {%>
+				<div class="col-xl-4 col-lg-6 property_col filterDiv house">
+					<div class="property">
+						<div class="property_image">
+							<a href="/<%= item.id%>/property"><img src="/uploads/<%= item.filename %>" width="400" height="300px"></a>
+							<div class="tag_offer property_tag"><a style="color: white;"><%= item.category%></a></div>
+						</div>
+						<div class="property_body text-center">
+							<div class="property_location"><%= item.location %></div>
+							<a href="/<%= item.id%>/property"><div class="property_title"><%= item.title %></div></a>
+							<div class="property_price">Ksh. <%= item.price %></div>
+						</div>
+						<div class="property_footer d-flex flex-row align-items-center justify-content-start">
+							<div><div class="property_icon"><img src="images/icon_1.png" alt=""></div><span><%= item.size %> Ftsq</span></div>
+							<div><div class="property_icon"><img src="images/icon_2.png" alt=""></div><span><%= item.bedroom %> Bedroom(s)</span></div>
+							<div><div class="property_icon"><img src="images/icon_3.png" alt=""></div><span><%= item.bathroom %> Bathroom(s)</span></div>
+						</div>
+					</div>
+				</div>
+				<% } %>
+				<% if (item.category == 'land') {%>
+					<div class="col-xl-4 col-lg-6 property_col filterDiv land">
+						<div class="property">
+							<div class="property_image">
+								<a href="/<%= item.id%>/property"><img src="/uploads/<%= item.filename%>" width="400" height="300px"></a>
+								<div class="tag_offer property_tag"><a style="color: white;"><%= item.category%></a></div>
+							</div>
+							<div class="property_body text-center">
+								<div class="property_location"><%= item.location %></div>
+								<a href="/<%= item.id%>/property"><div class="property_title"><%= item.title %></div></a>
+								<div class="property_price">Ksh. <%= item.price %></div>
+							</div>
+							<div class="property_footer d-flex flex-row align-items-center justify-content-start">
+								<div><div class="property_icon"><img src="images/icon_1.png" alt=""></div><span><%= item.size %> Ftsq</span></div>
+							</div>
+						</div>
+					</div>
+					<% } %>
+				<% if (item.category == 'motor') {%>
+					<div class="col-xl-4 col-lg-6 property_col filterDiv motor">
+						<div class="property">
+							<div class="property_image">
+								<a href="/<%= item.id%>/property"><img src="/uploads/<%= item.filename%>" width="400" height="300px"></a>
+								<div class="tag_offer property_tag"><a style="color: white;"><%= item.category%></a></div>
+							</div>
+							<div class="property_body text-center">
+								<div class="property_location"></div>
+								<a href="/<%= item.id%>/property"><div class="property_title"><%= item.title %></div></a>
+								<div class="property_price">Ksh. <%= item.price %></div>
+							</div>
+							<div style="height: 60px;" class="property_footer d-flex flex-row align-items-center justify-content-start">
+							</div>
+						</div>
+					</div>
+				<% } %>
+				<% }); %>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<%- include ("partials/footer.ejs") %>
+
+</div>
+
+<script>
+	filterSelection("all")
+	function filterSelection(c) {
+	  var x, i;
+	  x = document.getElementsByClassName("filterDiv");
+	  if (c == "all") c = "";
+	  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+	  for (i = 0; i < x.length; i++) {
+		w3RemoveClass(x[i], "show");
+		if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+	  }
+	}
+	
+	// Show filtered elements
+	function w3AddClass(element, name) {
+	  var i, arr1, arr2;
+	  arr1 = element.className.split(" ");
+	  arr2 = name.split(" ");
+	  for (i = 0; i < arr2.length; i++) {
+		if (arr1.indexOf(arr2[i]) == -1) {
+		  element.className += " " + arr2[i];
+		}
+	  }
+	}
+	
+	// Hide elements that are not selected
+	function w3RemoveClass(element, name) {
+	  var i, arr1, arr2;
+	  arr1 = element.className.split(" ");
+	  arr2 = name.split(" ");
+	  for (i = 0; i < arr2.length; i++) {
+		while (arr1.indexOf(arr2[i]) > -1) {
+		  arr1.splice(arr1.indexOf(arr2[i]), 1);
+		}
+	  }
+	  element.className = arr1.join(" ");
+	}
+	
+	// Add active class to the current control button (highlight it)
+	var btnContainer = document.getElementById("myBtnContainer");
+	var btns = btnContainer.getElementsByClassName("btn");
+	for (var i = 0; i < btns.length; i++) {
+	  btns[i].addEventListener("click", function() {
+		var current = document.getElementsByClassName("active");
+		current[0].className = current[0].className.replace(" active", "");
+		this.className += " active";
+	  });
+	}
+	  </script>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="js/properties.js"></script>
+</body>
+</html>

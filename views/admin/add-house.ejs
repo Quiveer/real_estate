@@ -1,0 +1,107 @@
+<html lang="en">
+  <head>
+
+    <title>Admin | Admin Home</title>
+    <%- include ("partials/head.ejs") %>
+
+  </head>
+
+  <body>
+
+  <section id="container" >
+      <!-- header -->
+      <%- include ("partials/header.ejs") %>
+
+      <!-- sidebar -->
+      <%- include ("partials/sidebar.ejs") %>
+
+      <section id="main-content">
+          <section class="wrapper">
+
+
+        <div class="row">
+
+                  <div class="col-md-12">
+                      <div class="content-panel">
+                        
+                        <form action="/uploadhouse" enctype="multipart/form-data" method="POST">
+                            <div class="input-group">
+                              <span class="input-group-addon" id="basic-addon1">Title</span>
+                              <input class="form-control" type="text" name="title" placeholder="House Title" aria-describedby="basic-addon1" required />
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6"><input type="file" name="myHouses" accept="image/*" required/></div>
+                              <div class="col-lg-6">
+                                <div class="input-group">
+                                  <span class="input-group-addon" id="basic-addon1">Category</span>
+                                  <input class="form-control" type="text" name="category" value="house" aria-describedby="basic-addon1" readonly required />
+                                </div>
+                            </div>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Location</span>
+                                <input class="form-control" type="text" name="location" placeholder="location" aria-describedby="basic-addon1" required />
+                              </div>
+                              <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Price(Ksh)</span>
+                                <input class="form-control" type="text" name="price" placeholder="Price" aria-describedby="basic-addon1" required />
+                              </div>
+                              <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Size(Ftsq)</span>
+                                <input class="form-control" type="text" name="size" placeholder="Size" aria-describedby="basic-addon1" required />
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">Bedroom</span>
+                                    <select name="bedroom" class="form-control" required>
+                                      <option value="" selected>choose...</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">Bathroom</span>
+                                    <select name="bathroom" class="form-control" required>
+                                        <option value="" selected>choose...</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    </div>
+                                </div>
+                              </div>
+                            <div class="input-group">
+                              <span class="input-group-addon" id="basic-addon1">Description</span>
+                              <textarea class="form-control" cols="30" rows="10" type="text" name="description" placeholder="Description..." aria-describedby="basic-addon1" required></textarea>
+                            </div><br>
+                            <div>
+                              <input type="submit" class="btn btn-primary" value="Add Property"/>
+                            </div>
+          
+                          </form>
+                      </div>
+                  </div>
+              </div>
+    </section>
+      </section></section>
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="/assets/js/common-scripts.js"></script>
+  <script>
+      $(function(){
+          $('select.styled').customSelect();
+      });
+
+  </script>
+
+  </body>
+</html>

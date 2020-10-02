@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Contact</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Bluesky template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/rangeslider.js-2.3.0/rangeslider.css">
+<link rel="stylesheet" type="text/css" href="styles/contact.css">
+<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
+</head>
+<body>
+
+<div class="super_container">
+	
+
+	<!-- Header -->
+
+	<header class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="header_content d-flex flex-row align-items-center justify-content-start">
+						<div class="logo">
+							<a href="#"><img src="images/logo.png" alt=""></a>
+						</div>
+						<nav class="main_nav">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="properties">Properties</a></li>
+								<li><a href="about">About us</a></li>
+								<li class="active"><a href="contact">Contact</a></li>
+							</ul>
+						</nav>
+						<div class="phone_num ml-auto">
+							<div class="phone_num_inner">
+								<img src="images/phone.png" alt=""><span>+254 700 000 000</span>
+							</div>
+						</div>
+						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Menu -->
+
+	<div class="menu trans_500">
+		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+			<div class="menu_close_container"><div class="menu_close"></div></div>
+			<div class="logo menu_logo">
+				<a href="#">
+					<div class="logo_container d-flex flex-row align-items-start justify-content-start">
+						<div class="logo_image"><div><img src="images/logo.png" alt=""></div></div>
+					</div>
+				</a>
+			</div>
+			<ul>
+				<li class="menu_item"><a href="/">Home</a></li>
+				<li class="menu_item"><a href="properties">Properties</a></li>
+				<li class="menu_item"><a href="about">About us</a></li>
+				<li class="menu_item"><a href="contact">Contact</a></li>
+			</ul>
+		</div>
+		<div class="menu_phone"><span>call us: </span>652 345 3222 11</div>
+	</div>
+	
+	<!-- Home -->
+
+	<div class="home">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/contact.jpg" data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content d-flex flex-row align-items-end justify-content-start">
+							<div class="home_title">Contact</div>
+							<div class="breadcrumbs ml-auto">
+								<ul>
+									<li><a href="/">Home</a></li>
+									<li>Contact</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				<% if (message.success) { %>
+				<div style="text-align: center; width: 60%;"></div>
+					<div class="alert alert-success alert-dismissible" role="alert">
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					  <%= message.success %>
+					</div>
+				</div>
+				<% } %>
+		</div>
+	</div>
+
+	<!-- Contact -->
+
+	<div class="contact">
+		<div class="container">
+			<div class="row">
+
+				<!-- Contact Info -->
+				<div class="col-lg-4">
+					<div class="contact_info">
+						<div class="section_title">Get in touch</div>
+						<div class="contact_info_content">
+							<ul class="contact_info_list">
+								<li>
+									<div>Address:</div>
+									<div>1481 Creekside Lane Avila Beach, CA 93424</div>
+								</li>
+								<li>
+									<div>Phone:</div>
+									<div>+53 345 7953 32453</div>
+								</li>
+								<li>
+									<div>Email:</div>
+									<div>yourmail@gmail.com</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Contact Form -->
+				<div class="col-lg-8">
+					<div class="contact_form_container">
+						<form action="/contact" class="contact_form" id="contact_form" method="POST">
+							<div class="row">
+								<!-- Name -->
+								<div class="col-lg-6 contact_name_col">
+									<input type="text" name="username" class="contact_input" placeholder="Name" required="required">
+								</div>
+								<!-- Email -->
+								<div class="col-lg-6">
+									<input type="email" name="email" class="contact_input" placeholder="E-mail" required="required">
+								</div>
+							</div>
+							<div><input type="text" name="phone" class="contact_input" placeholder="Phone no."></div>
+							<div><textarea name="message" class="contact_textarea contact_input" placeholder="Message" required="required"></textarea></div>
+							<button class="contact_button button">send</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<%- include ("partials/footer.ejs") %>
+
+</div>
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="styles/bootstrap4/popper.js"></script>
+	<script src="styles/bootstrap4/bootstrap.min.js"></script>
+	<script src="plugins/easing/easing.js"></script>
+	<script src="plugins/rangeslider.js-2.3.0/rangeslider.min.js"></script>
+	<script src="plugins/parallax-js-master/parallax.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+	<script src="js/contact.js"></script>
+</body>
+</html>
